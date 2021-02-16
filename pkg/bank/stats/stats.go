@@ -13,3 +13,14 @@ func Avg(payments []types.Payment) types.Money {
 
 	return types.Money( sum / len(payments) )
 }
+
+// TotalInCategory находит сумму покупок в определённой категории.
+func TotalInCategory( payments []types.Payment, category types.Category) types.Money {
+	sum := 0
+	for _, pay := range payments {
+		if (pay.Category == category){
+			sum += int(pay.Amount)
+		}
+	}
+	return types.Money(sum)
+}
